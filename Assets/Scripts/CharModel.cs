@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CharModel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] CharController controller;
+    Rigidbody myrig;
+    [SerializeField] float speed = 100;
+
+    private void Awake()
     {
-        
+        myrig = GetComponentInParent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        myrig.velocity = controller.Move * speed * Time.deltaTime;
     }
 }
