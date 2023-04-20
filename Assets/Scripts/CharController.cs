@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CharController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Vector3 v3Move;
+    public Vector3 Move
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        get
+        {
+            v3Move.x = Input.GetAxis("Horizontal");
+            v3Move.z = Input.GetAxis("Vertical");
+            return v3Move;
+        }
     }
 }
